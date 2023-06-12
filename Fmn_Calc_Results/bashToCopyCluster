@@ -1,0 +1,26 @@
+rm -r Cluster*
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/first2Clusters/WhamStitch/Cluster6 .
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/first2Clusters/WhamStitch/Cluster12 .
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize18Redone/WhamStitch Cluster18
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize24/WhamStitch Cluster24
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize30/WhamStitch Cluster30
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize36/WhamStitch Cluster36
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize42/WhamStitch Cluster42
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize48/WhamStitch Cluster48
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize54/Continued/WhamStitch Cluster54
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize60/WhamStitch Cluster60
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize66/WhamStitch Cluster66
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize72/WhamStitch Cluster72
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize78/WhamStitch Cluster78
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize84/WhamStitch Cluster84
+scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize90/WhamStitch Cluster90
+
+
+# scp -r chesudep@parampravega.iisc.ac.in:/home/staff/che/chesudep/aravind/Small72_LongRun_6_12_18_fixed/WhamStitch Long30nsSimulationsOfSmallerClusters
+#scp -r chesudep@parampravega.iisc.ac.in:/home/staff/che/chesudep/aravind/Small72_LongRun_24/WhamStitch Long30nsSimulationsOfSmallerClusters/Cluster24
+#scp -r chesudep@parampravega.iisc.ac.in:/home/staff/che/chesudep/aravind/Small72_LongRun_30/WhamStitch Long30nsSimulationsOfSmallerClusters/Cluster30
+#scp -r chesudep@parampravega.iisc.ac.in:/home/staff/che/chesudep/aravind/Small72_LongRun_60/WhamStitch Long30nsSimulationsOfSmallerClusters/Cluster60
+#scp -r chesudep@parampravega.iisc.ac.in:/home/staff/che/chesudep/aravind/Small72_LongRun_90/WhamStitch Long30nsSimulationsOfSmallerClusters/Cluster90
+
+
+#scp -r aravind@10.16.28.35:/home/aravind/NewCodeSudeep_NoOfWaterInClusterCriteria_Using2000WaterMolecules/SplitIntoTwoLargeJobs/ClusterSize66/BinaryToReadData .

@@ -1,0 +1,2 @@
+rm Histogram.{1..8}
+rm Histogram.{21..40}

@@ -1,0 +1,70 @@
+
+max_c1=0
+min_c1=100
+
+max_c2=0
+min_c2=100
+
+for file in Histogram.*; do
+    echo "File: $file"
+
+    output=$(awk 'NR==2 {min_c1=$1; max_c1=$1} $1>max_c1 {max_c1=$1} $1<min_c1 {min_c1=$1} END {print "Max: " max_c1 ", Min: " min_c1}' "$file")
+    curr_max_c1=$(echo $output | cut -d',' -f1 | cut -d':' -f2 | xargs)
+    curr_min_c1=$(echo $output | cut -d',' -f2 | cut -d':' -f2 | xargs)
+    if (( $(echo "$curr_max_c1 > $max_c1" |bc -l) )); then
+        max_c1=$curr_max_c1
+    fi
+    if (( $(echo "$curr_min_c1 < $min_c1" |bc -l) )); then
+        min_c1=$curr_min_c1
+    fi
+
+    output=$(awk 'NR==2 {min_c2=$2; max_c2=$2} $2>max_c2 {max_c2=$2} $2<min_c2 {min_c2=$2} END {print "Max: " max_c2 ", Min: " min_c2}' "$file")
+    curr_max_c2=$(echo $output | cut -d',' -f1 | cut -d':' -f2 | xargs)
+    curr_min_c2=$(echo $output | cut -d',' -f2 | cut -d':' -f2 | xargs)
+    if (( $(echo "$curr_max_c2 > $max_c2" |bc -l) )); then
+        max_c2=$curr_max_c2
+    fi
+    if (( $(echo "$curr_min_c2 < $min_c2" |bc -l) )); then
+        min_c2=$curr_min_c2
+    fi
+
+done
+
+ echo "close all"                                            >SurfAndContPlot.m
+ echo "clear all"                                           >>SurfAndContPlot.m
+ echo "M=linspace($min_c1,$max_c1,$(($max_c1-$min_c1+1)));" >>SurfAndContPlot.m
+ echo "S=linspace($min_c2,$max_c2,$(($max_c2-$min_c2+1)));" >>SurfAndContPlot.m
+ echo "G=load('free_energy.dat');" 			    >>SurfAndContPlot.m
+ echo "surf(M,S,G');xlabel('M');ylabel('S');" 		    >>SurfAndContPlot.m
+ echo "figure"                                              >>SurfAndContPlot.m
+ echo "contourf(M,S,G');xlabel('M');ylabel('S');"           >>SurfAndContPlot.m
+
+
+max_c1=$(echo "$max_c1 + 0.5" | bc)
+max_c2=$(echo "$max_c2 + 0.5" | bc)
+
+
+min_c1=$(echo "$min_c1 - 0.5" | bc)
+min_c2=$(echo "$min_c2 - 0.5" | bc)
+
+echo "Overall Max: $max_c1"
+echo "Overall Min: $min_c1"
+echo "Overall Max: $max_c2"
+echo "Overall Min: $min_c2"
+
+echo "$min_c1 $max_c1 1" >wham_input
+echo "$min_c2 $max_c2 1" >>wham_input
+
+NoOfFiles=$( ls Histogram.* | wc -l)
+echo "$NoOfFiles">>wham_input
+
+
+for file in Histogram.*; do
+    echo $file
+done | sort -V >>wham_input
+
+
+gfortran wham_2d.f90
+./a.out
+
+

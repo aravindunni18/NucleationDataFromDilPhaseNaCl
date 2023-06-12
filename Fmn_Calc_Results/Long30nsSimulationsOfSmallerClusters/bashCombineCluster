@@ -1,0 +1,24 @@
+#!/bin/bash
+clusters=()
+for ((num = 6; num <= 24; num += 6)); do
+  clusters+=("Cluster$num")
+done
+
+
+# Loop through each Cluster folder
+echo "close all" > CombinedContPlot.m
+echo "clear all" >> CombinedContPlot.m
+for cluster in "${clusters[@]}"; do
+	
+	echo "$cluster"
+	cd "$cluster"
+	tail -n -6 SurfAndContPlot.m > temp
+	sed -i "s/free_energy.dat/$cluster\/free_energy.dat/g" temp
+	tail -n -6 temp >> ../CombinedContPlot.m
+	rm temp
+	cd ..
+	echo "title('$cluster')" >> CombinedContPlot.m
+done
+
+#matlab -r "run('$(cygpath -w "$(pwd)")/CombinedContPlot.m');"
+			    
