@@ -1,0 +1,12 @@
+data_file="data.lmp"
+#directory="/path/to/other/files"  # Replace with the actual directory path
+directory="../../ClusterSize60/"
+
+# Iterate over the files starting with 'data.final.lmp' in the specified directory
+for file in "$directory"/data.lmp*; do
+    # Compare the contents of data_file with each file
+    if diff -q "$data_file" "$file" >/dev/null; then
+        echo "Files $data_file and $file are identical."
+    fi
+done
+

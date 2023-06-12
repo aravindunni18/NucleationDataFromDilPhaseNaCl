@@ -1,0 +1,35 @@
+# created by fftool
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+
+pair_style lj/cut/coul/long 9.0
+pair_modify tail yes
+kspace_style pppm 1.0e-5
+
+read_data data.lmp
+
+pair_coeff    *    *     0.000000     0.000000     # H H
+
+fix SHAKE all shake 0.0001 20 0 b 1 a 1
+
+neighbor 2.0 bin
+neigh_modify one 2000
+
+group solute type 1 2
+group solvent type 3 4
+group mols union solute solvent
+group oxygen type 3
+
+compute 1 solute group/group solvent pair yes kspace yes
+compute 2 solute group/group solute pair yes kspace yes
+
+fix 1 all ave/time 100 2000 200000 c_1 c_2 mode scalar file coul.dat
+
+thermo 1000000
+rerun dump.lammpstrj dump  x y z ix iy iz 
+

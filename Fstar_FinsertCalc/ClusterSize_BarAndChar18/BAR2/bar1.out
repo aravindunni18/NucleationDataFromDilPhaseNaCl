@@ -1,0 +1,209 @@
+12
+LAMMPS (29 Sep 2021)
+Reading data file ...
+  orthogonal box = (-19.633792 -19.633792 -19.633792) to (19.633792 19.633792 19.633792)
+  2 by 2 by 3 MPI processor grid
+  reading atoms ...
+  6018 atoms
+  reading velocities ...
+  6018 velocities
+  scanning bonds ...
+  2 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  reading bonds ...
+  4000 bonds
+  reading angles ...
+  2000 angles
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+     2 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+  read_data CPU = 0.027 seconds
+Setting atom values ...
+  9 settings made for charge
+Setting atom values ...
+  9 settings made for charge
+Finding SHAKE clusters ...
+       0 = # of size 2 clusters
+       0 = # of size 3 clusters
+       0 = # of size 4 clusters
+    2000 = # of frozen angles
+  find clusters CPU = 0.001 seconds
+18 atoms in group solute
+6000 atoms in group solvent
+6018 atoms in group mols
+2000 atoms in group oxygen
+Respa levels:
+  1 = bond angle dihedral improper
+  2 = pair kspace
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:340)
+  G vector (1/distance) = 0.33457663
+  grid = 36 36 36
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.0040786037
+  estimated relative force accuracy = 1.2282594e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 11875 3888
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 8 8 8
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair lj/cut/coul/long, perpetual, skip from (3)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (2) pair lj/cut/coul/long/soft, perpetual, skip from (3)
+      attributes: half, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  (3) neighbor class addition, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Setting up r-RESPA run ...
+  Unit style    : real
+  Current step  : 0
+  Time steps    : 1:0.1 2:1
+  r-RESPA fixes : 1:spring[TETHER]
+Per MPI rank memory allocation (min/avg/max) = 11.86 | 11.86 | 11.87 Mbytes
+Step PotEng KinEng v_b1 v_b2 v_b3 
+       0    529097.72    3568.2264   -2.0333868   -10.288569   0.52233729 
+       1    524753.59    6721.9681   -2.0243308   -10.248123   0.52068309 
+Loop time of 0.00658774 on 12 procs for 1 steps with 6018 atoms
+
+Performance: 13.115 ns/day, 1.830 hours/ns, 151.797 timesteps/s
+89.0% CPU use with 12 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.0023109  | 0.0026272  | 0.0027648  |   0.3 | 39.88
+Bond    | 1.6256e-06 | 2.2524e-06 | 2.9444e-06 |   0.0 |  0.03
+Kspace  | 0.0015559  | 0.0016953  | 0.0020141  |   0.3 | 25.73
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.001054   | 0.0010789  | 0.0011077  |   0.1 | 16.38
+Output  | 2.2865e-05 | 2.825e-05  | 7.7029e-05 |   0.0 |  0.43
+Modify  | 0.0010179  | 0.0010404  | 0.0010566  |   0.0 | 15.79
+Other   |            | 0.0001154  |            |       |  1.75
+
+Nlocal:        501.500 ave         524 max         481 min
+Histogram: 2 1 1 1 2 0 2 1 1 1
+Nghost:        5536.50 ave        5589 max        5486 min
+Histogram: 2 1 1 2 0 0 1 3 1 1
+Neighs:         0.00000 ave           0 max           0 min
+Histogram: 12 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0.0000000
+Ave special neighs/atom = 1.9940179
+Neighbor list builds = 0
+Dangerous builds = 0
+Displacing atoms ...
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:340)
+  G vector (1/distance) = 0.33457663
+  grid = 36 36 36
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.0040786037
+  estimated relative force accuracy = 1.2282594e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 11875 3888
+FEP settings ...
+  temperature = 298.000000
+  tail yes
+  pair lj/cut/coul/long/soft lambda 1-1 1-3
+  pair lj/cut/coul/long/soft lambda 2-2 2-3
+FEP settings ...
+  temperature = 298.000000
+  tail yes
+  pair lj/cut/coul/long/soft lambda 1-1 1-3
+  pair lj/cut/coul/long/soft lambda 2-2 2-3
+Setting up r-RESPA run ...
+  Unit style    : real
+  Current step  : 0
+  Time steps    : 1:0.1 2:1
+  r-RESPA fixes : 1:spring[TETHER] 1:spring/self[SPRING]
+Per MPI rank memory allocation (min/avg/max) = 12.23 | 12.24 | 12.24 Mbytes
+Step PotEng KinEng v_b1 v_b2 v_b3 
+       0   -22209.899    6721.9681 -6.4875306e-16 -1.8381337e-15 5.4062755e-17 
+ 1000000   -23914.191    3212.6808  0.080981812  -0.11564157 -0.070762038 
+ 2000000   -24900.585    4229.5266  0.042727433 -0.036873031 -0.016377427 
+ 3000000   -24864.156    4176.0919 0.0094989291 -0.023398887 -0.014449956 
+ 4000000   -24285.478     3629.607  0.026117285  0.072504827 -0.0020129211 
+ 5000000   -24049.295    3316.7452   0.02735567 -0.056592467  0.055112149 
+ 6000000   -24050.197    3516.5986   0.02867572  0.019225088 -0.070248642 
+ 7000000   -23516.537    2981.7448 -0.012758325 -0.0063313639  -0.10644249 
+ 8000000   -23808.185    3408.9906 -0.019826643 0.0086891826 -0.098261364 
+ 9000000   -24082.759    3503.5831  0.054300346  0.040878012 -0.039711376 
+10000000   -24070.182    3693.4613  0.034402649 0.0030189611 -0.039575409 
+11000000   -23938.827    3640.9995 0.0018424138  0.034624265 -0.0035735812 
+12000000   -24239.166    4055.1105  0.030875936 -0.033353093 -0.021577249 
+13000000   -23845.185    3655.1015  0.051555084 -0.048067897 -0.010332217 
+14000000   -23988.643     3744.253 -0.023695542   0.05036313  -0.02706438 
+15000000   -23854.264    3795.0764  0.046333148  0.019435031 -0.044534742 
+16000000    -23633.26    3442.9674  0.034544203 -0.0029640194  0.060690433 
+17000000   -23613.777     3538.616  0.048577214  0.022723459 -0.037952796 
+18000000   -24047.655    3879.1833 0.00050082815 -0.019330399  0.027093004 
+19000000   -23327.432    3251.0908  0.084083217 0.0036828074  0.026397292 
+20000000   -24056.887    3886.4863 0.0016388675 -0.0082349153 -0.0036669915 
+21000000   -23493.599    3538.8345  0.018341497  0.031910771  0.049683998 
+22000000    -23570.51    3677.3063 -0.0092152404  0.020017268 0.0048807368 
+23000000   -23631.022    3782.7739  0.022565581 -0.0014476149 -0.045922456 
+24000000   -23315.191    3365.7364  0.021426952 0.00096526086  0.062610797 
+25000000   -23549.026    3648.7615  0.033999464  -0.01306862 -0.026464446 
+26000000   -23520.621    3602.6343 -0.050175749 0.0061883994  0.028738077 
+27000000   -23217.977    3571.2333 -0.062649589   0.03163798  0.026478011 
+28000000   -23328.329    3662.8255 -0.046647959  0.023455471 -0.012976304 
+29000000   -23298.932    3580.2015 -0.018620598 -0.035189084   0.02984975 
+30000000   -23247.654    3473.6031  0.046890189 -0.0086778656 -0.024726904 
+31000000   -23040.087    3390.0478 -0.042570048 -0.040699345 -0.021996028 
+32000000   -23230.081    3614.3361  0.024850542  0.039114453  0.019647861 
+33000000   -23167.511    3592.3235 0.0085538322  0.041049517 0.0012257991 
+34000000   -23261.923    3679.6653 -0.014222487 -0.0075486598  0.013591398 
+35000000    -23241.68    3613.2763  0.015267517  0.036871935  0.033852654 
+36000000   -23075.042    3553.4573 -0.0088606702 -0.021071513  0.014431558 
+37000000   -22997.561    3400.1109 -0.026837683 -0.024845148 0.0055626486 
+38000000   -23028.038    3483.5185 -0.013371909 -0.035124477  0.012975946 
+39000000   -23022.704    3543.8136 -0.011084891 -0.022226344  0.013867109 
+Loop time of 219669 on 12 procs for 39000000 steps with 6018 atoms
+
+Performance: 15.339 ns/day, 1.565 hours/ns, 177.540 timesteps/s
+100.0% CPU use with 12 MPI tasks x no OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 74365      | 80038      | 84952      |1119.6 | 36.44
+Bond    | 36.907     | 44.314     | 51.363     |  60.4 |  0.02
+Kspace  | 55689      | 60016      | 65063      |1211.3 | 27.32
+Neigh   | 5653.5     | 5678.3     | 5698.4     |  24.7 |  2.58
+Comm    | 34516      | 35307      | 36032      | 288.5 | 16.07
+Output  | 0.0028511  | 0.0030573  | 0.005172   |   1.2 |  0.00
+Modify  | 35732      | 36035      | 36248      |  83.6 | 16.40
+Other   |            | 2551       |            |       |  1.16
+
+Nlocal:        501.500 ave         527 max         485 min
+Histogram: 2 0 2 4 1 1 1 0 0 1
+Nghost:        5535.50 ave        5566 max        5477 min
+Histogram: 1 0 0 1 1 1 2 1 2 3
+Neighs:         0.00000 ave           0 max           0 min
+Histogram: 12 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0.0000000
+Ave special neighs/atom = 1.9940179
+Neighbor list builds = 1492314
+Dangerous builds = 0
+Total wall time: 61:01:09

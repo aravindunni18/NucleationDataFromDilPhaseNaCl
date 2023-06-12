@@ -1,0 +1,59 @@
+#!/bin/bash
+# supported_cluster_sizes=(24 30 36 42 48 54 60 66 72 78 84 90)
+#supported_cluster_sizes=(24 30 36 42)
+#supported_cluster_sizes=(48 54 60 66)
+#supported_cluster_sizes=(72 78)
+#supported_cluster_sizes=(84 90)
+supported_cluster_sizes=(6 12 18)
+
+for cluster_size in "${supported_cluster_sizes[@]}"; do
+    echo "ClusterSize $cluster_size"
+
+    cd ClusterSize_BarAndChar$cluster_size/charges/
+
+    # Submit the job and capture the JobIDNum
+#    jobID=$(qsub job.scr | awk '{print substr($1, 1, 5)}')
+
+#    echo "Submitted job $jobID"
+
+    # Check if the job is still running
+#   x=$(qstat $jobID 2>&1 | awk '{print substr($0, 1, 5)}')
+#
+#   while [ "$x" != "qstat" ]; do
+#       echo "Job $jobID is still running"
+#       sleep 5
+#       x=$(qstat $jobID 2>&1 | awk '{print substr($0, 1, 5)}')
+#   done
+#
+#   # The job has finished running
+#   echo "Job $jobID has completed."
+#
+#   # Run qsub job.scr2
+#   #qsub job.scr2
+#   sed -i "0,/48/s//12/" ClusterSize_BarAndChar$cluster_size/charges/job.sc2
+   sed -i '0,/=48/s//=12/' job.scr2
+   sed -i '0,/=12/s//=24/' job.scr2
+   jobID2=$(qsub job.scr2 | awk '{print substr($1, 1, 5)}')
+   echo "Submitted job $jobID2"
+
+#
+#   # Check if the job is still running
+#   x=$(qstat $jobID2 2>&1 | awk '{print substr($0, 1, 5)}')
+#
+#   while [ "$x" != "qstat" ]; do
+#       echo "Job $jobID2 is still running"
+#       sleep 5
+#       x=$(qstat $jobID2 2>&1 | awk '{print substr($0, 1, 5)}')
+#   done
+#
+#   # The job has finished running
+#   echo "Job $jobID2 has completed."
+#
+#   gfortran delta_Fcoul.f90    
+#
+#   echo "charges Sim output for Cluster Size $cluster_size " > ChargesSimOutPutClusterSize$cluster_size
+#   ./a.out >> ChargesSimOutPutClusterSize$cluster_size
+#
+   cd ../../
+done
+

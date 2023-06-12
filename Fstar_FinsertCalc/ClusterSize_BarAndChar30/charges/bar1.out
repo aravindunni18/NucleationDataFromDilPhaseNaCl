@@ -1,0 +1,84 @@
+48
+LAMMPS (29 Sep 2021)
+Reading data file ...
+  orthogonal box = (-19.738322 -19.738322 -19.738322) to (19.738322 19.738322 19.738322)
+  3 by 4 by 4 MPI processor grid
+  reading atoms ...
+  6030 atoms
+  reading velocities ...
+  6030 velocities
+  scanning bonds ...
+  2 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  reading bonds ...
+  4000 bonds
+  reading angles ...
+  2000 angles
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+     2 = max # of special neighbors
+  special bonds CPU = 0.003 seconds
+  read_data CPU = 0.086 seconds
+Finding SHAKE clusters ...
+       0 = # of size 2 clusters
+       0 = # of size 3 clusters
+       0 = # of size 4 clusters
+    2000 = # of frozen angles
+  find clusters CPU = 0.002 seconds
+30 atoms in group solute
+6000 atoms in group solvent
+6030 atoms in group mols
+2000 atoms in group oxygen
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:340)
+  G vector (1/distance) = 0.34270132
+  grid = 40 40 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.0026179218
+  estimated relative force accuracy = 7.8837939e-06
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 6069 1400
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 8 8 8
+  3 neighbor lists, perpetual/occasional/extra = 1 2 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) compute group/group, occasional, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+  (3) compute group/group, occasional, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 8.309 | 8.324 | 8.338 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+       0    303.01897    -29432.12            0   -25792.958   -36637.587 
+ 1000000    303.01897   -29718.634            0   -26079.472   -37251.043 
+ 2000000    303.01897   -29603.685            0   -25964.523   -38865.102 
+ 3000000    303.01897   -29765.119            0   -26125.957   -37446.066 
+ 4000000    303.01897   -29799.559            0   -26160.397   -35267.387 
+ 5000000    303.01897   -29772.938            0   -26133.776   -39292.798 
+ 6000000    303.01897   -29970.345            0   -26331.183   -36596.201 
+ 7000000    303.01897   -29958.366            0   -26319.204   -38102.315 
+ 8000000    303.01897   -29929.526            0   -26290.364   -35962.551 
+ 9000000    303.01897   -30037.386            0   -26398.224   -35663.208 
+10000000    303.01897   -30059.479            0   -26420.317   -37340.189 
+11000000    303.01897   -30165.942            0    -26526.78   -37176.352 
+Loop time of 1420.79 on 48 procs for 110001 steps with 6030 atoms
+
+Total wall time: 0:23:41

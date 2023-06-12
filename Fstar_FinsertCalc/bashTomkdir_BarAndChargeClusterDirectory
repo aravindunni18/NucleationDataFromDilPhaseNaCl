@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#supported_cluster_sizes=(24 30 36 42 48 54 60 66 72 78 84 90)
+supported_cluster_sizes=(6 12 18)
+
+for cluster_size in "${supported_cluster_sizes[@]}"; do
+    # Extract the value and save it to the variable x
+    if [[ $cluster_size != 6 && $cluster_size != 12 ]]; then
+        x=$(awk '{a[NR]=$1; b[NR]=$3} END{for(i=NR;i>=1;i--) if(b[i]==0) {print a[i]; exit}}' <(tail -n+4 "../ClusterSize$cluster_size/fileNum_s0_m0_rel"))
+
+        # Print "hello x" a certain number of times (e.g., 5 times)
+        echo "DataFileNumber_And_ClusterSize_resp $x $cluster_size"
+    fi
+
+    # Check if the directory already exists
+    if [ -d "ClusterSize_BarAndChar$cluster_size" ]; then
+        echo "Directory ClusterSize_BarAndChar$cluster_size already exists. Skipping copy operation."
+    else
+        # Create the directory and copy the files
+        cp -r default ClusterSize_BarAndChar$cluster_size
+    fi
+
+    if [[ $cluster_size == 6 ]]; then
+        cp "../first2Clusters/data.final.lmp.8" ClusterSize_BarAndChar$cluster_size/charges/data.lmp
+        cp "../first2Clusters/data.final.lmp.8" ClusterSize_BarAndChar$cluster_size/BAR1/data.lmp
+    elif [[ $cluster_size == 12 ]]; then
+        cp "../first2Clusters/2Windows/data.final.lmp.2" ClusterSize_BarAndChar$cluster_size/charges/data.lmp
+        cp "../first2Clusters/2Windows/data.final.lmp.2" ClusterSize_BarAndChar$cluster_size/BAR1/data.lmp
+    else
+        cp "../ClusterSize$cluster_size/data.final.lmp.$x" ClusterSize_BarAndChar$cluster_size/charges/data.lmp
+        cp "../ClusterSize$cluster_size/data.final.lmp.$x" ClusterSize_BarAndChar$cluster_size/BAR1/data.lmp
+    fi
+
+    sed -i '21,+6d' ClusterSize_BarAndChar$cluster_size/charges/data.lmp
+    sed -i '21,+6d' ClusterSize_BarAndChar$cluster_size/BAR1/data.lmp
+
+    sed -i "0,/charge1/s//char_ClSize$cluster_size/" ClusterSize_BarAndChar$cluster_size/charges/job.scr
+    sed -i "0,/charge1/s//rerun_ClSize$cluster_size/" ClusterSize_BarAndChar$cluster_size/charges/job.scr2
+    sed -i "0,/bar/s//BAR1_ClSize$cluster_size/" ClusterSize_BarAndChar$cluster_size/BAR1/job.scr
+done
+
+echo "$(basename "$(dirname "$PWD")")"

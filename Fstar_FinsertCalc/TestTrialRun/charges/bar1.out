@@ -1,0 +1,82 @@
+48
+LAMMPS (29 Sep 2021)
+Reading data file ...
+  orthogonal box = (-19.874796 -19.874796 -19.874796) to (19.874796 19.874796 19.874796)
+  3 by 4 by 4 MPI processor grid
+  reading atoms ...
+  6060 atoms
+  scanning bonds ...
+  2 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  reading bonds ...
+  4000 bonds
+  reading angles ...
+  2000 angles
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+     2 = max # of special neighbors
+  special bonds CPU = 0.003 seconds
+  read_data CPU = 0.028 seconds
+Finding SHAKE clusters ...
+       0 = # of size 2 clusters
+       0 = # of size 3 clusters
+       0 = # of size 4 clusters
+    2000 = # of frozen angles
+  find clusters CPU = 0.003 seconds
+60 atoms in group solute
+6000 atoms in group solvent
+6060 atoms in group mols
+2000 atoms in group oxygen
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (../kspace.cpp:340)
+  G vector (1/distance) = 0.34215799
+  grid = 40 40 40
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.0027016159
+  estimated relative force accuracy = 8.1358362e-06
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 6069 1400
+Neighbor list info ...
+  update every 1 steps, delay 10 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 8 8 8
+  3 neighbor lists, perpetual/occasional/extra = 1 2 0
+  (1) pair lj/cut/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) compute group/group, occasional, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+  (3) compute group/group, occasional, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 8.308 | 8.323 | 8.336 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+       0            0   -32313.278            0   -32313.278   -38146.727 
+ 1000000            0   -32663.067            0   -32663.067   -39037.501 
+ 2000000            0   -32777.892            0   -32777.892   -39214.288 
+ 3000000            0   -32745.463            0   -32745.463    -39093.64 
+ 4000000            0   -32744.679            0   -32744.679   -39106.882 
+ 5000000            0   -32615.022            0   -32615.022   -38835.582 
+ 6000000            0   -32620.034            0   -32620.034   -38734.134 
+ 7000000            0   -32552.345            0   -32552.345   -38667.647 
+ 8000000            0   -32609.592            0   -32609.592   -38697.369 
+ 9000000            0   -32621.983            0   -32621.983   -38693.538 
+10000000            0   -32704.098            0   -32704.098   -38614.514 
+11000000            0   -32485.776            0   -32485.776   -38299.832 
+Loop time of 1424.66 on 48 procs for 110001 steps with 6060 atoms
+
+Total wall time: 0:23:44

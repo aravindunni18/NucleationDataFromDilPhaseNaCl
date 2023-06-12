@@ -1,0 +1,77 @@
+# created by fftool
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+
+pair_style lj/cut/coul/long 9.0
+pair_modify tail yes
+kspace_style pppm 1.0e-5
+
+read_data data.lmp
+
+pair_coeff    1    1     0.352644     2.159500     # Na Na
+pair_coeff    2    2     0.012785     4.830500     # Cl Cl
+pair_coeff    3    3     0.155402     3.166000     # O O
+pair_coeff    4    4     0.000000     0.000000     # H H
+
+pair_coeff    1    2     0.067148     3.495000     # Na Cl
+pair_coeff    1    3     0.234097     2.663050     # Na O
+pair_coeff    2    3     0.044574     3.998550     # Cl O
+
+pair_coeff    1    4     0.000000     0.000000     # Na H
+pair_coeff    2    4     0.000000     0.000000     # Cl H
+pair_coeff    3    4     0.000000     0.000000     # O H
+
+fix SHAKE all shake 0.0001 20 0 b 1 a 1
+
+neighbor 2.0 bin
+neigh_modify one 2000
+
+group solute type 1 2
+group solvent type 3 4
+group mols union solute solvent
+group oxygen type 3
+
+compute thermo_ke all ke
+
+compute xxx solute com
+variable b1 equal -1.0*c_xxx[1]
+variable b2 equal -1.0*c_xxx[2]
+variable b3 equal -1.0*c_xxx[3]
+
+fix TETHER solute spring tether 10000 0.0 0.0 0.0 0.0
+fix_modify  TETHER respa 1
+fix_modify  TETHER energy yes
+
+fix NVE mols nve
+velocity mols create 298 12234
+timestep 1.0
+
+thermo 1
+thermo_style custom step pe ke v_b1 v_b2 v_b3
+run_style respa 2 10 
+run 1
+displace_atoms mols move v_b1 v_b2 v_b3
+
+
+fix SPRING solute spring/self 5000
+fix_modify SPRING respa 1
+fix_modify SPRING energy yes
+
+variable lambda equal ramp(0,1.1)
+variable qNa equal 1.0*v_lambda
+variable qCl equal -1.0*v_lambda
+
+fix 1 all adapt/fep 1000000 atom charge 1 v_qNa atom charge 2 v_qCl after yes
+
+dump TRAJ all custom 100 dump.lammpstrj id mol type element x y z ix iy iz
+
+reset_timestep 0
+
+thermo 1000000
+run 11000000   
+
