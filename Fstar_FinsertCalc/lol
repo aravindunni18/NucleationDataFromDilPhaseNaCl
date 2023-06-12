@@ -28,3 +28,4 @@ sed -i "0,/bar/s//BAR1_ClSize$cluster_size/" ClusterSize_BarAndChar$cluster_size
 done
 
 echo "$(basename "$(dirname "$PWD")")"
+#testing
